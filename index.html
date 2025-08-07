@@ -4,30 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>10IoT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
   <style>
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
+      background: url('https://preview.redd.it/b3evfee0vb571.png?width=1080&crop=smart&auto=webp&s=d456feb0f8a31a8ab69a60f8de1da6c22121ab8b') repeat;
+      background-size: auto;
+      font-family: 'Segoe UI', sans-serif;
+      color: #111;
+      cursor: url('https://www.rw-designer.com/cursor-view/134299.png'), auto;
+      image-rendering: pixelated;
+      display: flex;
+      flex-direction: column;
     }
 
     body {
-      font-family: 'Segoe UI', 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #0f0f0f, #1c1c1c);
-      color: #e0e0e0;
       animation: fadeIn 1.2s ease-out;
-    }
-
-    .page-wrapper {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-    }
-
-    main.container {
-      flex: 1;
     }
 
     @keyframes fadeIn {
@@ -36,44 +39,46 @@
     }
 
     header {
-      background: linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
-      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, #3366cc, #003399);
       padding: 1rem 2rem;
       display: flex;
-      justify-content: flex-end;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-      box-shadow: 0 0 6px rgba(0,0,0,0.6);
-      text-shadow: 0 0 3px #000;
+      border-bottom: 3px solid #002266;
+      box-shadow: 0 0 8px #000;
     }
 
     header a {
-      color: #d0eaff;
+      color: #fff;
       text-decoration: none;
       margin: 0 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: color 0.2s ease;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.2s ease;
     }
 
     header a:hover {
-      color: #ffffff;
+      color: #ff4444;
+      text-decoration: underline;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 950px;
+      background: #e4e4e4;
+      border: 4px solid #555;
+      border-radius: 8px;
       margin: 2rem auto;
       padding: 2rem;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(15px);
-      box-shadow: inset 0 1px rgba(255,255,255,0.2), 0 6px 18px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+      flex: 1;
     }
 
     h1, h2, h3 {
-      color: #ffffff;
-      text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+      font-family: 'Press Start 2P', cursive;
+      color: #002266;
+      text-shadow: 1px 1px 0px #fff;
+      font-size: 1.1rem;
     }
 
     .projects {
@@ -85,52 +90,51 @@
       gap: 2rem;
       flex-wrap: wrap;
       margin-top: 1rem;
+      justify-content: center;
     }
 
     .card {
-      background-color: rgba(30, 30, 30, 0.7);
-      border-radius: 10px;
+      background: linear-gradient(to bottom, #ffffff, #d5d5d5);
+      border: 2px solid #003399;
+      border-radius: 6px;
       padding: 1rem;
       width: 100%;
       max-width: 280px;
-      backdrop-filter: blur(6px);
-      box-shadow: inset 0 1px rgba(255,255,255,0.05), 0 0 8px rgba(0,0,0,0.4);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
       transform: scale(1.02);
-      box-shadow: 0 0 15px rgba(0,150,255,0.3);
+      box-shadow: 0 0 12px #3399ff;
+      border-color: #ff0000;
     }
 
     .card-title {
-      color: #fff;
-      text-shadow: 0 0 2px rgba(0,0,0,0.4);
+      color: #000;
+      font-weight: bold;
     }
 
     .card-text {
-      color: #ccc;
+      color: #222;
     }
 
     .aero-btn {
-      display: inline-block;
-      padding: 0.3rem 1rem;
-      font-weight: 600;
-      border: none;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(200,200,200,0.1));
-      border-radius: 6px;
-      box-shadow: inset 0 1px rgba(255,255,255,0.6), 0 3px 8px rgba(0,0,0,0.4);
+      background: linear-gradient(to bottom, #ff0000, #cc0000);
       color: #fff;
-      backdrop-filter: blur(6px);
-      transition: all 0.2s ease;
+      padding: 0.4rem 1.2rem;
+      border: 2px solid #660000;
+      border-radius: 5px;
+      font-weight: bold;
+      text-shadow: 1px 1px #000;
+      box-shadow: 2px 2px 0 #330000;
+      transition: background 0.2s, transform 0.1s;
     }
 
     .aero-btn:hover {
-      background: rgba(255, 255, 255, 0.35);
-      box-shadow: inset 0 1px rgba(255,255,255,0.7), 0 4px 12px rgba(0,0,0,0.5);
+      background: linear-gradient(to bottom, #cc0000, #990000);
+      transform: translateY(-1px);
     }
 
     .card img.inline-icon {
@@ -148,7 +152,7 @@
       height: 100%;
       background: url('logo and photos/img0.jpg') center/cover no-repeat;
       opacity: 0.2;
-      filter: blur(4px);
+      filter: grayscale(0.6) brightness(0.8);
       z-index: 0;
     }
 
@@ -161,14 +165,26 @@
       display: none;
     }
 
+    pre, code {
+      background: #111;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      padding: 0.5rem;
+      border: 2px solid #0f0;
+      display: block;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+
     footer {
       text-align: center;
       padding: 0.8rem;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(8px);
+      background: #222;
+      color: #aaa;
       font-size: 0.9rem;
-      color: #ccc;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 3px solid #003399;
+      margin-top: auto;
     }
 
     #rickroll-video {
@@ -180,6 +196,27 @@
       height: 100vh;
       z-index: 99999;
       object-fit: cover;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        max-width: 100%;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header nav a {
+        display: inline-block;
+        margin: 0.5rem;
+      }
+
+      .container {
+        margin: 1rem;
+        padding: 1rem;
+      }
     }
   </style>
 </head>
@@ -222,46 +259,40 @@
 
       <section id="about-section" class="text-center">
         <h2>About Me</h2>
-        <p>As you read from the previous page, I like gaming, coding, cars and planes. I like socializing with a lot of people since I am a sociable person which makes me kinda cool. 
-          I made this site just to put everything into one place and not millions of links in my bio.</p>
+        <p>As you read from the previous page, I like gaming, coding, cars and planes. I like socializing with a lot of people since I am a sociable person which makes me kinda cool. I made this site just to put everything into one place and not millions of links in my bio.</p>
         <button class="aero-btn" onclick="hideAllSections()">Back</button>
       </section>
 
-<section id="support-section" class="text-start">
-  <h2 class="text-center">Support</h2>
-  <p>
-    If you want to support this site, you can do so without watching ads!<br/>
-    Help by installing XMRig and mining Monero with me.
-  </p>
+      <section id="support-section" class="text-start">
+        <h2 class="text-center">Support</h2>
+        <p>If you want to support this site, help by installing XMRig and mining Monero with me.</p>
 
-  <h4>Windows Setup</h4>
-  <pre><code>powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB; Remove-Item -Force $tempfile"</code></pre>
+        <h4>Windows Setup</h4>
+        <pre><code>powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB; Remove-Item -Force $tempfile"</code></pre>
 
-  <h4>Linux Setup</h4>
-  <pre><code>curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh | bash -s 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB</code></pre>
+        <h4>Linux Setup</h4>
+        <pre><code>curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh | bash -s 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB</code></pre>
 
-  <h3 class="mt-4">How to Stop the Miner</h3>
+        <h3 class="mt-4">How to Stop the Miner</h3>
 
-  <h4>On Windows:</h4>
-  <ol>
-    <li>Open the Start menu and search for <strong>Services</strong>.</li>
-    <li>Find a service named <strong>moneroocean_miner</strong>.</li>
-    <li>Right-click it and select <strong>Stop</strong>.</li>
-    <li>To prevent it from restarting on boot:</li>
-    <li>Right-click again, choose <strong>Properties</strong>.</li>
-    <li>Change <strong>Startup type</strong> from <em>Automatic</em> to <strong>Manual</strong>.</li>
-  </ol>
+        <h4>On Windows:</h4>
+        <ol>
+          <li>Open the Start menu and search for <strong>Services</strong>.</li>
+          <li>Find <strong>moneroocean_miner</strong>.</li>
+          <li>Right-click it → <strong>Stop</strong>.</li>
+          <li>To disable it from restarting:</li>
+          <li>Right-click again → <strong>Properties</strong> → <strong>Manual</strong>.</li>
+        </ol>
 
-  <h4>On Linux:</h4>
-  <ol>
-    <li>Open your terminal.</li>
-    <li>Run the command: <code>htop</code> (or <code>top</code> if <code>htop</code> is not installed).</li>
-    <li>Find any process with the name <code>xmrig</code> or similar.</li>
-    <li>Note the <strong>PID</strong> (Process ID) next to it.</li>
-    <li>Press <code>F9</code> (in htop) and select <code>9 (SIGKILL)</code>, or run:</li>
-    <pre><code>kill -9 [PID]</code></pre>
-    <li>To disable it from starting on boot, check <code>~/.bashrc</code>, <code>~/.profile</code>, or <code>crontab -e</code> for any XMRig-related commands and remove them.</li>
-  </ol>
+        <h4>On Linux:</h4>
+        <ol>
+          <li>Open terminal.</li>
+          <li>Run <code>htop</code> or <code>top</code>.</li>
+          <li>Find <code>xmrig</code> process, note PID.</li>
+          <li>Run <code>kill -9 [PID]</code> to stop it.</li>
+          <li>Check <code>~/.bashrc</code>, <code>~/.profile</code>, or <code>crontab -e</code> to remove auto-start commands.</li>
+        </ol>
+
         <p class="text-center mt-4">
           <button class="aero-btn" onclick="hideAllSections()">Back</button>
         </p>
@@ -273,11 +304,9 @@
     Made by 10IoT, and some dreams.
   </footer>
 
-  <!-- Fullscreen video element -->
-<video id="rickroll-video" autoplay playsinline style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:99999;object-fit:cover;">
-  <source src="logo and photos/YOU'LL NEVER SEE IT COMING _ Roblox I Wanna Test The Game.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+  <video id="rickroll-video" autoplay playsinline style="display:none;">
+    <source src="logo and photos/YOU'LL NEVER SEE IT COMING _ Roblox I Wanna Test The Game.mp4" type="video/mp4">
+  </video>
 
   <script>
     function hideAllSections() {
@@ -301,41 +330,23 @@
       document.getElementById('support-section').style.display = 'block';
     }
 
-function playRickRoll() {
-  const video = document.getElementById('rickroll-video');
-  video.style.display = 'block';
-  video.muted = false;
-
-  // Force reload when video ends
-  video.onended = () => {
-    location.reload();
-  };
-
-  // Play the video right away
-  video.play().catch(err => {
-    console.error("Autoplay error:", err);
-  });
-
-  // Optional: try full screen
-  if (video.requestFullscreen) {
-    video.requestFullscreen().catch(() => {});
-  }
-
-  // Optional: lock screen orientation
-  if (screen.orientation && screen.orientation.lock) {
-    screen.orientation.lock("landscape").catch(() => {});
-  }
-
-  // Block escape keys
-  document.addEventListener("keydown", function(e) {
-    const blocked = ["Escape", "F11", "F12"];
-    if (blocked.includes(e.key)) {
-      e.preventDefault();
-      e.stopPropagation();
+    function playRickRoll() {
+      const video = document.getElementById('rickroll-video');
+      video.style.display = 'block';
+      video.muted = false;
+      video.onended = () => location.reload();
+      video.play().catch(err => console.error("Autoplay error:", err));
+      if (video.requestFullscreen) video.requestFullscreen().catch(() => {});
+      if (screen.orientation && screen.orientation.lock) screen.orientation.lock("landscape").catch(() => {});
+      document.addEventListener("keydown", function(e) {
+        if (["Escape", "F11", "F12"].includes(e.key)) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }, true);
     }
-  }, true);
-}
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
 </body>
 </html>
