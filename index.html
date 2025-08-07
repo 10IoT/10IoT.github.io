@@ -306,22 +306,27 @@ function playRickRoll() {
   video.style.display = 'block';
   video.muted = false;
 
+  // Force reload when video ends
+  video.onended = () => {
+    location.reload();
+  };
+
+  // Play the video right away
   video.play().catch(err => {
-    console.error('Autoplay failed:', err);
+    console.error("Autoplay error:", err);
   });
 
+  // Optional: try full screen
+  if (video.requestFullscreen) {
+    video.requestFullscreen().catch(() => {});
+  }
+
+  // Optional: lock screen orientation
   if (screen.orientation && screen.orientation.lock) {
     screen.orientation.lock("landscape").catch(() => {});
   }
 
-  if (video.requestFullscreen) {
-    video.requestFullscreen();
-  } else if (video.webkitRequestFullscreen) {
-    video.webkitRequestFullscreen();
-  } else if (video.msRequestFullscreen) {
-    video.msRequestFullscreen();
-  }
-
+  // Block escape keys
   document.addEventListener("keydown", function(e) {
     const blocked = ["Escape", "F11", "F12"];
     if (blocked.includes(e.key)) {
@@ -329,12 +334,7 @@ function playRickRoll() {
       e.stopPropagation();
     }
   }, true);
-
-  video.onended = () => {
-    location.reload();
-  };
 }
-
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
