@@ -3,196 +3,298 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>10IoT</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <title>10IoT - Classic Roblox</title>
 
   <style>
-    html, body {
-      height: 100%;
+    body {
       margin: 0;
       padding: 0;
-      background: url('logo and photos/e942d5c326e104bddf1d2c8ce3e0e9a7.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Segoe UI', sans-serif;
-      color: #111;
-      cursor: url('https://www.rw-designer.com/cursor-view/134299.png'), auto;
-      image-rendering: pixelated;
-      display: flex;
-      flex-direction: column;
-    }
-
-    body {
-      animation: fadeIn 1.2s ease-out;
+      background: #9dc9f0 url('logo and photos/e942d5c326e104bddf1d2c8ce3e0e9a7.png') repeat-x top;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Navigation */
+    nav {
+      background: #003399;
+      padding: 6px;
+      text-align: center;
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.2);
     }
-
-    header {
-      background: linear-gradient(to bottom, #3366cc, #003399);
-      padding: 0.8rem 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      border-bottom: 4px solid #001a66;
-      box-shadow: 0 0 8px #000;
-    }
-
-    header a {
+    nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 0.8rem;
       font-weight: bold;
-      font-size: 0.95rem;
-      padding: 0.3rem 0.6rem;
+      margin: 0 8px;
+      padding: 4px 8px;
+      background: rgba(255,255,255,0.05);
       border-radius: 3px;
-      background: linear-gradient(to bottom, #0055cc, #003399);
-      border: 1px solid #001a66;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
-      transition: background 0.2s, transform 0.1s;
+      font-size: 13px;
+    }
+    nav a:hover {
+      background: linear-gradient(to bottom, #ffcc00, #cc9900);
+      color: #000;
+      text-shadow: none;
     }
 
-    header a:hover {
-      background: linear-gradient(to bottom, #ff4444, #cc0000);
-      border-color: #660000;
-      transform: translateY(-1px);
+    /* Announcement strip */
+    .announcement {
+      background: linear-gradient(to bottom, #ffdd55, #ffaa00);
+      color: #000;
+      text-align: center;
+      font-weight: bold;
+      padding: 6px;
+      border-bottom: 2px solid #996600;
+      box-shadow: inset 0 1px #fff, 0 1px 4px rgba(0,0,0,0.3);
+      font-size: 13px;
     }
 
-    .container {
-      max-width: 950px;
-      background: #f5f5f5;
-      border: 3px solid #555;
-      border-radius: 6px;
-      margin: 2rem auto;
-      padding: 2rem;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    /* Main Content */
+    .main-content {
+      width: 800px;
+      margin: 20px auto;
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Left Sidebar */
+    .sidebar {
+      width: 220px;
+    }
+
+    /* Center Content */
+    .center-content {
       flex: 1;
     }
 
-    h1, h2, h3 {
-      font-family: 'Press Start 2P', cursive;
-      color: #002266;
-      text-shadow: 1px 1px 0px #fff;
-      font-size: 1.1rem;
+    /* Aero Panels */
+    .panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2px solid rgba(0, 51, 153, 0.6);
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+    }
+    .panel h2 {
+      font-size: 14px;
+      background: linear-gradient(to bottom, #3366cc, #003399);
+      color: #fff;
+      margin: -10px -10px 10px -10px;
+      padding: 6px;
+      border-radius: 3px 3px 0 0;
+      box-shadow: inset 0 1px #99bbff;
     }
 
-    .projects {
-      margin-top: 3rem;
+    /* Cards */
+    .card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid #666;
+      padding: 8px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      border-radius: 4px;
+      box-shadow: inset 0 1px #fff, 0 2px 6px rgba(0,0,0,0.2);
     }
 
+    /* Music Player */
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(255,255,255,0.9);
+      border: 2px solid #003399;
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .music-toggle {
+      width: 50px;
+      height: 30px;
+      background: linear-gradient(to bottom, #f5f5f5, #cfcfcf);
+      border: 2px solid #777;
+      border-radius: 15px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .music-toggle:before {
+      content: '';
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      background: linear-gradient(to bottom, #ffcc00, #cc9900);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      transition: all 0.3s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .music-toggle.on {
+      background: linear-gradient(to bottom, #99ff99, #66cc66);
+    }
+    
+    .music-toggle.on:before {
+      left: 20px;
+      background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    }
+    
+    .music-info {
+      font-size: 12px;
+      color: #003399;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0,51,153,0.9);
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      margin-top: 20px;
+      font-size: 12px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: linear-gradient(to bottom, #f5f5f5, #cfcfcf);
+      color: #000;
+      border: 2px solid #777;
+      padding: 4px 10px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      box-shadow: inset 0 1px #fff, 0 2px 4px rgba(0,0,0,0.2);
+      text-shadow: 0 1px #fff;
+    }
+    .btn:hover {
+      background: linear-gradient(to bottom, #ff3333, #cc0000);
+      color: #fff;
+      border-color: #660000;
+      text-shadow: 0 1px #000;
+    }
+
+    input {
+      border: 1px solid #666;
+      padding: 4px;
+      width: 90%;
+      margin-bottom: 6px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.9);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    /* Project Cards */
     .project-cards {
       display: flex;
-      gap: 2rem;
+      gap: 15px;
       flex-wrap: wrap;
-      margin-top: 1rem;
-      justify-content: center;
+      margin-top: 15px;
     }
 
-    .card {
-      background: linear-gradient(to bottom, #ffffff, #d9d9d9);
-      border: 2px solid #003399;
-      border-radius: 6px;
-      padding: 1rem;
-      width: 100%;
-      max-width: 280px;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    .project-card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid #666;
+      padding: 10px;
+      width: calc(50% - 20px);
+      border-radius: 4px;
+      box-shadow: inset 0 1px #fff, 0 2px 6px rgba(0,0,0,0.2);
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s;
     }
 
-    .card:hover {
+    .project-card:hover {
       transform: scale(1.02);
-      box-shadow: 0 0 12px #3399ff;
-      border-color: #ff0000;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
     }
 
     .card-title {
-      color: #000;
       font-weight: bold;
+      color: #000;
+      font-size: 13px;
     }
 
     .card-text {
       color: #222;
+      font-size: 12px;
     }
 
-    .aero-btn {
-      background: linear-gradient(to bottom, #ff0000, #cc0000);
-      color: #fff;
-      padding: 0.4rem 1.2rem;
-      border: 2px solid #660000;
-      border-radius: 5px;
-      font-weight: bold;
-      text-shadow: 1px 1px #000;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 2px 2px 0 #330000;
-      transition: background 0.2s, transform 0.1s;
-    }
-
-    .aero-btn:hover {
-      background: linear-gradient(to bottom, #cc0000, #990000);
-      transform: translateY(-1px);
-    }
-
-    .card img.inline-icon {
+    .inline-icon {
       width: 40px;
       margin-right: 10px;
       vertical-align: middle;
     }
 
-    .card.bg-image::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
+    /* Accordion */
+    .accordion-item {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid #666;
+      margin-bottom: 8px;
+      border-radius: 4px;
+    }
+
+    .accordion-button {
+      background: rgba(255,255,255,0.5);
+      font-weight: bold;
+      font-size: 12px;
+      padding: 8px;
       width: 100%;
-      height: 100%;
-      background: url('logo and photos/img0.jpg') center/cover no-repeat;
-      opacity: 0.2;
-      filter: grayscale(0.6) brightness(0.8);
-      z-index: 0;
+      text-align: left;
+      border: none;
+      cursor: pointer;
     }
 
-    .card.bg-image * {
-      position: relative;
-      z-index: 1;
+    .accordion-button:after {
+      content: "▼";
+      float: right;
+      font-size: 10px;
     }
 
-    #about-section, #support-section {
+    .accordion-button.collapsed:after {
+      content: "►";
+    }
+
+    .accordion-body {
+      font-size: 12px;
+      padding: 8px;
       display: none;
     }
 
+    .accordion-body.show {
+      display: block;
+    }
+
+    /* Code blocks */
     pre, code {
       background: #111;
       color: #0f0;
       font-family: 'Courier New', monospace;
-      font-size: 0.85rem;
-      padding: 0.5rem;
-      border: 2px solid #0f0;
+      font-size: 12px;
+      padding: 8px;
+      border: 1px solid #333;
+      border-radius: 3px;
       display: block;
       white-space: pre-wrap;
       overflow-x: auto;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: #aaa;
-      font-size: 0.9rem;
-      border-top: 3px solid #003399;
-      margin-top: auto;
-    }
-
+    /* Video */
     #rickroll-video {
       display: none;
       position: fixed;
@@ -204,232 +306,187 @@
       object-fit: cover;
     }
 
-    @media (max-width: 600px) {
-      .card {
-        max-width: 100%;
-      }
-
-      header {
+    @media (max-width: 850px) {
+      .main-content {
+        width: 95%;
         flex-direction: column;
-        text-align: center;
       }
-
-      header nav a {
-        display: inline-block;
-        margin: 0.5rem;
+      
+      .sidebar {
+        width: 100%;
       }
-
-      .container {
-        margin: 1rem;
-        padding: 1rem;
+      
+      .project-card {
+        width: 100%;
       }
-
-      footer {
-        font-size: 0.8rem;
-        padding: 0.8rem;
-        word-wrap: break-word;
+      
+      .music-player {
+        bottom: 10px;
+        right: 10px;
+        transform: scale(0.9);
       }
     }
-    @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    padding: 0.4rem;
-  }
 
-  header nav a {
-    display: block;
-    margin: 0.25rem 0;
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
-  }
-
-  .container {
-    margin: 0.5rem;
-    padding: 0.8rem;
-    width: 100%;
-    border-radius: 4px;
-  }
-
-  h1, h2, h3 {
-    font-size: 0.85rem; /* better for small screens */
-  }
-
-  .project-cards {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .card {
-    max-width: 100%;
-    font-size: 0.85rem;
-    padding: 0.8rem;
-  }
-
-  .card img.inline-icon {
-    width: 28px;
-    margin-right: 5px;
-  }
-
-  .accordion-button {
-    font-size: 0.8rem;
-    padding: 0.5rem;
-    white-space: normal;
-  }
-
-  .aero-btn {
-    font-size: 0.8rem;
-    padding: 0.35rem 0.7rem;
-  }
-}
+    @media (max-width: 600px) {
+      nav a {
+        display: inline-block;
+        margin: 4px;
+        font-size: 12px;
+      }
+      
+      .music-player {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 120px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <header>
-      <nav>
-        <a onclick="hideAllSections()">Home</a>
-        <a onclick="showAbout()">About</a>
-        <a onclick="showSupport()">Support</a>
-        <a onclick="showFAQ()">FAQ</a>
-      </nav>
-    </header>
+  <!-- Music Player -->
+  <div class="music-player">
+    <div class="music-toggle on" onclick="toggleMusic()"></div>
+    <div class="music-info">Music: ON</div>
+    <audio id="background-music" loop>
+      <source src="logo and photos\Happy-Go-Lively.mp3" type="audio/mp3">
+    </audio>
+  </div>
 
-    <main class="container">
-      <section class="intro text-center" id="intro-section">
-        <h1 class="mt-3">Welcome!</h1>
-        <p>Hello. I am 10IoT</p>
-        <p>I like gaming, coding, cars and planes</p>
-        <p>WARNING: This site is kinda broken on mobile view for some reason. Better viewed on desktop for a more optimal use</p>
-        <button class="aero-btn mt-3" onclick="playRickRoll()">Free Robux :D</button>
-      </section>
+  <nav>
+    <a onclick="hideAllSections()">Home</a>
+    <a onclick="showAbout()">About</a>
+    <a onclick="showSupport()">Support</a>
+    <a onclick="showFAQ()">FAQ</a>
+  </nav>
 
-      <section class="projects" id="projects">
-        <h2 id="Sites">Sites</h2>
-        <p>Here are some sites for you to see.</p>
+  <div class="announcement">
+      Note: This site is still not finished!
+  </div>
 
-        <div class="project-cards mt-4">
-          <div class="card" onclick="window.open('https://10iot.github.io/Vine-Classics.github.io/', '_blank')">
+  <div class="main-content">
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+      <div class="panel">
+        <div style="font-size: 11px; margin-top: 8px;">
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>NEWS:</h2>
+        <div class="card">Succesfully made the site look retro somehow. It is still broken so dont expect much.</div>
+        <div style="text-align: center; font-size: 11px; margin-top: 5px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Content -->
+    <div class="center-content">
+      <div class="panel" id="intro-section">
+        <h2>Welcome to my site!!</h2>
+        <div class="card">
+          <p>Hello. I am 10IoT. I like gaming, coding, cars and planes.</p>
+          <button class="btn" onclick="playRickRoll()">Free Robux :D</button>
+        </div>
+      </div>
+
+      <div class="panel" id="projects">
+        <h2>Here is my archive of old apps</h2>
+        <div class="featured-img"></div>
+        <div class="card">
+          <strong>Comming soon</strong>
+          <p>Idk would someone really need this?</p>
+        </div>
+      </div>
+
+      <div class="panel" id="projects-section">
+        <h2>My Sites</h2>
+        <div class="card">Here are some sites for you to see.</div>
+
+        <div class="project-cards">
+          <div class="project-card" onclick="window.open('https://10iot.github.io/Vine-Classics.github.io/', '_blank')">
             <h5 class="card-title">
-              <img src="logo and photos/Untitled207_20250606152121.jpeg" alt="App One Icon" class="inline-icon">
+              <img src="logo and photos/Untitled207_20250606152121.jpeg" alt="VineClassics Icon" class="inline-icon">
               VineClassics
             </h5>
             <p class="card-text">This is the VineClassics site.</p>
           </div>
-          <div class="card bg-image" onclick="window.open('https://10iot.github.io/Recreation7.github.io/', '_blank')">
+          <div class="project-card" onclick="window.open('https://10iot.github.io/Recreation7.github.io/', '_blank')">
             <h5 class="card-title">Recreation7</h5>
             <p class="card-text">Somewhat Windows 7 recreated in HTML, CSS and the 7.css library</p>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section id="about-section" class="text-center">
+      <div class="panel" id="about-section" style="display:none;">
         <h2>About Me</h2>
-        <p>As you read from the previous page, I like gaming, coding, cars and planes. I like socializing with a lot of people since I am a sociable person which makes me kinda cool. I made this site just to put everything into one place and not millions of links in my bio.</p>
-        <button class="aero-btn" onclick="hideAllSections()">Back</button>
-      </section>
+        <div class="card">
+          <p>As you read from the previous page, I like gaming, coding, cars and planes. I like socializing with a lot of people since I am a sociable person which makes me kinda cool. I made this site just to put everything into one place and not millions of links in my bio.</p>
+          <button class="btn" onclick="hideAllSections()">Back</button>
+        </div>
+      </div>
 
-      <section id="support-section" class="text-start">
-        <h2 class="text-center">Support</h2>
-        <p>If you want to support this site, help by installing XMRig and mining Monero with me.</p>
+      <div class="panel" id="support-section" style="display:none;">
+        <h2>Support</h2>
+        <div class="card">
+          <p>If you want to support this site, help by installing XMRig and mining Monero with me.</p>
 
-        <h4>Windows Setup</h4>
-        <pre><code>powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB; Remove-Item -Force $tempfile"</code></pre>
+          <h5>Windows Setup</h5>
+          <pre><code>powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB; Remove-Item -Force $tempfile"</code></pre>
 
-        <h4>Linux Setup</h4>
-        <pre><code>curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh | bash -s 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB</code></pre>
+          <h5>Linux Setup</h5>
+          <pre><code>curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh | bash -s 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB</code></pre>
 
-        <h3 class="mt-4">How to Stop the Miner</h3>
+          <button class="btn" onclick="hideAllSections()">Back</button>
+        </div>
+      </div>
 
-        <h4>On Windows:</h4>
-        <ol>
-          <li>Open the Start menu and search for <strong>Services</strong>.</li>
-          <li>Find <strong>moneroocean_miner</strong>.</li>
-          <li>Right-click it → <strong>Stop</strong>.</li>
-          <li>To disable it from restarting:</li>
-          <li>Right-click again → <strong>Properties</strong> → <strong>Manual</strong>.</li>
-        </ol>
+      <div class="panel" id="faq-section" style="display:none;">
+        <h2>FAQ</h2>
+        <div class="card">
+          <div class="accordion-item">
+            <button class="accordion-button" onclick="toggleAccordion(this)">
+              What is this site about?
+            </button>
+            <div class="accordion-body">
+              My little corner in the internet purely for fun
+            </div>
+          </div>
 
-        <h4>On Linux:</h4>
-        <ol>
-          <li>Open terminal.</li>
-          <li>Run <code>htop</code> or <code>top</code>.</li>
-          <li>Find <code>xmrig</code> process, note PID.</li>
-          <li>Run <code>kill -9 [PID]</code> to stop it.</li>
-          <li>Check <code>~/.bashrc</code>, <code>~/.profile</code>, or <code>crontab -e</code> to remove auto-start commands.</li>
-        </ol>
+          <div class="accordion-item">
+            <button class="accordion-button collapsed" onclick="toggleAccordion(this)">
+              How can I contact you?
+            </button>
+            <div class="accordion-body">
+              You can reach me via my GitHub profile or Contact me via Discord vineclassics
+            </div>
+          </div>
 
-        <p class="text-center mt-4">
-          <button class="aero-btn" onclick="hideAllSections()">Back</button>
-        </p>
-      </section>
-    
-<section id="faq-section" class="text-start" style="display:none;">
-  <h2 class="text-center">FAQ</h2>
-  <div class="accordion" id="faqAccordion">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="faqHeading1">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
-          What is this site about?
-        </button>
-      </h2>
-      <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          My little corner in the internet purely for fun
+          <div class="accordion-item">
+            <button class="accordion-button collapsed" onclick="toggleAccordion(this)">
+              Can I contribute to your projects?
+            </button>
+            <div class="accordion-body">
+              Yes! Contributions are welcome. Fork the repository and submit a pull request.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-button collapsed" onclick="toggleAccordion(this)">
+              Who supports you?
+            </button>
+            <div class="accordion-body">
+              Thanks to my friends and my buddy TechStuff for helping me to host this site!
+            </div>
+          </div>
+
+          <button class="btn" style="margin-top: 10px;" onclick="hideAllSections()">Back</button>
         </div>
       </div>
     </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="faqHeading2">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
-          How can I contact you?
-        </button>
-      </h2>
-      <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          You can reach me via my GitHub profile or Contact me via Discord vineclassics
-        </div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="faqHeading3">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
-          Can I contribute to your projects?
-        </button>
-      </h2>
-      <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Yes! Contributions are welcome. Fork the repository and submit a pull request.
-        </div>
-      </div>
-    </div>
-
-    <!-- Fixed 4th item -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="faqHeading4">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4">
-          Who supports you?
-        </button>
-      </h2>
-      <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Thanks to my friends and my buddy TechStuff for helping me to host this site!
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <p class="text-center mt-4">
-    <button class="aero-btn" onclick="hideAllSections()">Back</button>
-  </p>
-</section>
-
-    </main>
   </div>
 
   <footer>
-    Made by 10IoT, and some dreams.
+    Made by 10IoT • and some dreams
   </footer>
 
   <video id="rickroll-video" autoplay playsinline style="display:none;">
@@ -437,33 +494,68 @@
   </video>
 
   <script>
+    // Music control functions
+    const music = document.getElementById('background-music');
+    const musicToggle = document.querySelector('.music-toggle');
+    const musicInfo = document.querySelector('.music-info');
+    
+    // Try to play music when page loads (may be blocked by browser autoplay policies)
+    document.addEventListener('DOMContentLoaded', function() {
+      music.volume = 0.3; // Set lower volume by default
+      const playPromise = music.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // Autoplay was prevented, show music is off
+          musicToggle.classList.remove('on');
+          musicInfo.textContent = 'Music: OFF (click to enable)';
+        });
+      }
+    });
+    
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        musicToggle.classList.add('on');
+        musicInfo.textContent = 'Music: ON';
+      } else {
+        music.pause();
+        musicToggle.classList.remove('on');
+        musicInfo.textContent = 'Music: OFF';
+      }
+    }
+
     function hideAllSections() {
       document.getElementById('intro-section').style.display = 'block';
       document.getElementById('projects').style.display = 'block';
+      document.getElementById('projects-section').style.display = 'block';
       document.getElementById('about-section').style.display = 'none';
       document.getElementById('support-section').style.display = 'none';
-      document.getElementById('faq-section').style.display = 'none'; // <-- FIX
+      document.getElementById('faq-section').style.display = 'none';
     }
-
 
     function showAbout() {
       document.getElementById('intro-section').style.display = 'none';
       document.getElementById('projects').style.display = 'none';
+      document.getElementById('projects-section').style.display = 'none';
       document.getElementById('about-section').style.display = 'block';
       document.getElementById('support-section').style.display = 'none';
+      document.getElementById('faq-section').style.display = 'none';
     }
 
     function showSupport() {
       document.getElementById('intro-section').style.display = 'none';
       document.getElementById('projects').style.display = 'none';
+      document.getElementById('projects-section').style.display = 'none';
       document.getElementById('about-section').style.display = 'none';
       document.getElementById('support-section').style.display = 'block';
+      document.getElementById('faq-section').style.display = 'none';
     }
-
     
     function showFAQ() {
       document.getElementById('intro-section').style.display = 'none';
       document.getElementById('projects').style.display = 'none';
+      document.getElementById('projects-section').style.display = 'none';
       document.getElementById('about-section').style.display = 'none';
       document.getElementById('support-section').style.display = 'none';
       document.getElementById('faq-section').style.display = 'block';
@@ -484,8 +576,68 @@
         }
       }, true);
     }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+
+    function toggleAccordion(button) {
+      button.classList.toggle('collapsed');
+      const body = button.nextElementSibling;
+      body.classList.toggle('show');
+    }
+
+    function runLiteVersion() {
+    // Remove blur/backdrop
+    document.querySelectorAll('.panel').forEach(el => {
+      el.style.backdropFilter = "none";
+      el.style.webkitBackdropFilter = "none";
+      el.style.background = "#fff";
+      el.style.boxShadow = "none";
+    });
+
+    // Simplify cards
+    document.querySelectorAll('.card, .project-card, .accordion-item').forEach(el => {
+      el.style.background = "#fff";
+      el.style.boxShadow = "none";
+      el.style.border = "1px solid #ccc";
+    });
+
+    // Hide music player
+    const player = document.querySelector('.music-player');
+    if (player) player.style.display = "none";
+
+    // Maybe disable video prank
+    const video = document.getElementById('rickroll-video');
+    if (video) video.remove();
+  }
+
+  function detectDevice() {
+    let lowEnd = false;
+
+    // Check if device has low RAM
+    if (navigator.deviceMemory && navigator.deviceMemory <= 2) {
+      lowEnd = true;
+    }
+
+    // Check if backdrop-filter is supported
+    if (!CSS.supports("backdrop-filter: blur(8px)")) {
+      lowEnd = true;
+    }
+
+    // Quick performance test
+    const start = performance.now();
+    for (let i = 0; i < 1e6; i++) {} // tiny loop benchmark
+    const duration = performance.now() - start;
+    if (duration > 150) { // device too slow
+      lowEnd = true;
+    }
+
+    if (lowEnd) {
+      console.warn("Running lite version for better performance.");
+      runLiteVersion();
+    } else {
+      console.log("Running full version.");
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', detectDevice);
   </script>
 </body>
 </html>
