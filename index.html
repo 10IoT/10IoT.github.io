@@ -432,37 +432,6 @@
   </video>
 
   <script>
-    // Music control functions
-    const music = document.getElementById('background-music');
-    const musicToggle = document.querySelector('.music-toggle');
-    const musicInfo = document.querySelector('.music-info');
-    
-    // Try to play music when page loads (may be blocked by browser autoplay policies)
-    document.addEventListener('DOMContentLoaded', function() {
-      music.volume = 0.3; // Set lower volume by default
-      const playPromise = music.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          // Autoplay was prevented, show music is off
-          musicToggle.classList.remove('on');
-          musicInfo.textContent = 'Music: OFF (click to enable)';
-        });
-      }
-    });
-    
-    function toggleMusic() {
-      if (music.paused) {
-        music.play();
-        musicToggle.classList.add('on');
-        musicInfo.textContent = 'Music: ON';
-      } else {
-        music.pause();
-        musicToggle.classList.remove('on');
-        musicInfo.textContent = 'Music: OFF';
-      }
-    }
-
     function hideAllSections() {
       document.getElementById('intro-section').style.display = 'block';
       document.getElementById('projects').style.display = 'block';
