@@ -6,6 +6,7 @@
   <title>10IoT</title>
 
   <style>
+    /* Base styles that work on all browsers */
     body {
       margin: 0;
       padding: 0;
@@ -13,8 +14,6 @@
       font-family: Arial, Helvetica, sans-serif;
       color: #000;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     /* Navigation */
@@ -22,7 +21,6 @@
       background: #003399;
       padding: 6px;
       text-align: center;
-      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.2);
     }
     nav a {
       color: #fff;
@@ -35,89 +33,80 @@
       font-size: 13px;
     }
     nav a:hover {
-      background: linear-gradient(to bottom, #ffcc00, #cc9900);
+      background: #ffcc00;
       color: #000;
-      text-shadow: none;
     }
 
     /* Announcement strip */
     .announcement {
-      background: linear-gradient(to bottom, #ffdd55, #ffaa00);
+      background: #ffdd55;
       color: #000;
       text-align: center;
       font-weight: bold;
       padding: 6px;
       border-bottom: 2px solid #996600;
-      box-shadow: inset 0 1px #fff, 0 1px 4px rgba(0,0,0,0.3);
       font-size: 13px;
     }
 
     /* Main Content */
     .main-content {
-      flex: 1; /* This makes the content grow and push footer down */
       width: 800px;
       margin: 20px auto;
-      display: flex;
-      gap: 20px;
+      display: block;
     }
 
     /* Left Sidebar */
     .sidebar {
       width: 220px;
+      float: left;
     }
 
     /* Center Content */
     .center-content {
-      flex: 1;
+      margin-left: 240px;
     }
 
-    /* Aero Panels */
+    /* Basic Panels - fallback style */
     .panel {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 2px solid rgba(0, 51, 153, 0.6);
+      background: #fff;
+      border: 2px solid #003399;
       padding: 10px;
       border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       margin-bottom: 20px;
     }
     .panel h2 {
       font-size: 14px;
-      background: linear-gradient(to bottom, #3366cc, #003399);
+      background: #003399;
       color: #fff;
       margin: -10px -10px 10px -10px;
       padding: 6px;
       border-radius: 3px 3px 0 0;
-      box-shadow: inset 0 1px #99bbff;
     }
 
     /* Cards */
     .card {
-      background: rgba(255,255,255,0.8);
+      background: #fff;
       border: 1px solid #666;
       padding: 8px;
       margin-bottom: 10px;
       font-size: 13px;
       border-radius: 4px;
-      box-shadow: inset 0 1px #fff, 0 2px 6px rgba(0,0,0,0.2);
     }
 
     /* Footer */
     footer {
-      background: rgba(0,51,153,0.9);
+      background: #003399;
       color: #fff;
       text-align: center;
       padding: 8px;
       font-size: 12px;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
-      margin-top: auto; /* ensures it stays at bottom */
+      clear: both;
     }
 
     /* Buttons */
     .btn {
       display: inline-block;
-      background: linear-gradient(to bottom, #f5f5f5, #cfcfcf);
+      background: #f5f5f5;
       color: #000;
       border: 2px solid #777;
       padding: 4px 10px;
@@ -126,14 +115,11 @@
       font-weight: bold;
       cursor: pointer;
       border-radius: 4px;
-      box-shadow: inset 0 1px #fff, 0 2px 4px rgba(0,0,0,0.2);
-      text-shadow: 0 1px #fff;
     }
     .btn:hover {
-      background: linear-gradient(to bottom, #ff3333, #cc0000);
+      background: #ff3333;
       color: #fff;
       border-color: #660000;
-      text-shadow: 0 1px #000;
     }
 
     input {
@@ -142,32 +128,28 @@
       width: 90%;
       margin-bottom: 6px;
       border-radius: 3px;
-      background: rgba(255,255,255,0.9);
-      box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+      background: #fff;
     }
 
     /* Project Cards */
     .project-cards {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
       margin-top: 15px;
     }
 
     .project-card {
-      background: rgba(255,255,255,0.8);
+      background: #fff;
       border: 1px solid #666;
       padding: 10px;
       width: calc(50% - 20px);
       border-radius: 4px;
-      box-shadow: inset 0 1px #fff, 0 2px 6px rgba(0,0,0,0.2);
+      margin-bottom: 15px;
       cursor: pointer;
-      transition: transform 0.2s;
+      float: left;
+      box-sizing: border-box;
     }
-
-    .project-card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    
+    .project-card:nth-child(odd) {
+      margin-right: 15px;
     }
 
     .card-title {
@@ -189,14 +171,14 @@
 
     /* Accordion */
     .accordion-item {
-      background: rgba(255,255,255,0.8);
+      background: #fff;
       border: 1px solid #666;
       margin-bottom: 8px;
       border-radius: 4px;
     }
 
     .accordion-button {
-      background: rgba(255,255,255,0.5);
+      background: #fff;
       font-weight: bold;
       font-size: 12px;
       padding: 8px;
@@ -252,24 +234,124 @@
       object-fit: cover;
     }
 
+    /* Modern styles that will be conditionally applied */
+    .modern-styles body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .modern-styles .main-content {
+      display: flex;
+      gap: 20px;
+      flex: 1;
+    }
+    
+    .modern-styles .center-content {
+      margin-left: 0;
+      flex: 1;
+    }
+    
+    .modern-styles .project-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .modern-styles .project-card {
+      float: none;
+      margin-right: 0;
+    }
+    
+    .modern-styles footer {
+      margin-top: auto;
+    }
+
+    .modern-styles nav {
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.2);
+    }
+    
+    .modern-styles nav a:hover {
+      background: linear-gradient(to bottom, #ffcc00, #cc9900);
+      text-shadow: none;
+    }
+    
+    .modern-styles .announcement {
+      background: linear-gradient(to bottom, #ffdd55, #ffaa00);
+      box-shadow: inset 0 1px #fff, 0 1px 4px rgba(0,0,0,0.3);
+    }
+    
+    .modern-styles .panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    .modern-styles .panel h2 {
+      background: linear-gradient(to bottom, #3366cc, #003399);
+      box-shadow: inset 0 1px #99bbff;
+    }
+    
+    .modern-styles .card {
+      background: rgba(255,255,255,0.8);
+      box-shadow: inset 0 1px #fff, 0 2px 6px rgba(0,0,0,0.2);
+    }
+    
+    .modern-styles .btn {
+      background: linear-gradient(to bottom, #f5f5f5, #cfcfcf);
+      box-shadow: inset 0 1px #fff, 0 2px 4px rgba(0,0,0,0.2);
+      text-shadow: 0 1px #fff;
+    }
+    
+    .modern-styles .btn:hover {
+      background: linear-gradient(to bottom, #ff3333, #cc0000);
+      text-shadow: 0 1px #000;
+    }
+    
+    .modern-styles input {
+      background: rgba(255,255,255,0.9);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .modern-styles .project-card {
+      box-shadow: inset 0 1px #fff, 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    
+    .modern-styles .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+    
+    .modern-styles footer {
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+    }
+    
+    .modern-styles .accordion-item {
+      background: rgba(255,255,255,0.8);
+    }
+    
+    .modern-styles .accordion-button {
+      background: rgba(255,255,255,0.5);
+    }
+
     @media (max-width: 850px) {
       .main-content {
         width: 95%;
-        flex-direction: column;
       }
       
       .sidebar {
         width: 100%;
+        float: none;
+      }
+      
+      .center-content {
+        margin-left: 0;
       }
       
       .project-card {
         width: 100%;
-      }
-      
-      .music-player {
-        bottom: 10px;
-        right: 10px;
-        transform: scale(0.9);
+        margin-right: 0 !important;
       }
     }
 
@@ -278,12 +360,6 @@
         display: inline-block;
         margin: 4px;
         font-size: 12px;
-      }
-      
-      .music-player {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 120px;
       }
     }
   </style>
@@ -466,6 +542,8 @@
 
     function playRickRoll() {
       const video = document.getElementById('rickroll-video');
+      if (!video) return;
+      
       video.style.display = 'block';
       video.muted = false;
       video.onended = () => location.reload();
@@ -486,61 +564,82 @@
       body.classList.toggle('show');
     }
 
-    function runLiteVersion() {
-    // Remove blur/backdrop
-    document.querySelectorAll('.panel').forEach(el => {
-      el.style.backdropFilter = "none";
-      el.style.webkitBackdropFilter = "none";
-      el.style.background = "#fff";
-      el.style.boxShadow = "none";
+    function isOldWebKit() {
+      // Check for older Safari/iOS versions
+      const userAgent = navigator.userAgent;
+      
+      // Detect iOS versions below 12
+      if (/iP(ad|hone|od).+OS (9|10|11)_/.test(userAgent)) {
+        return true;
+      }
+      
+      // Detect older Safari versions (Safari 9-11)
+      if (/Version\/(9|10|11)\.\d Safari/.test(userAgent)) {
+        return true;
+      }
+      
+      // Detect older Mac OS X WebKit versions
+      if (/Macintosh.+Mac OS X 10_(9|10|11|12|13)/.test(userAgent)) {
+        return true;
+      }
+      
+      // Check for backdrop-filter support (not supported in older WebKit)
+      if (!CSS.supports('backdrop-filter', 'blur(1px)') && 
+          !CSS.supports('-webkit-backdrop-filter', 'blur(1px)')) {
+        return true;
+      }
+      
+      // Check for flexbox gaps support (not supported in older Safari)
+      if (!CSS.supports('gap', '1px')) {
+        return true;
+      }
+      
+      return false;
+    }
+
+    function applyModernStyles() {
+      document.documentElement.classList.add('modern-styles');
+    }
+
+    function applyFallbackStyles() {
+      // Remove video element to save resources
+      const video = document.getElementById('rickroll-video');
+      if (video) video.remove();
+      
+      // Replace any remaining modern features
+      document.querySelectorAll('.panel').forEach(panel => {
+        panel.style.backdropFilter = 'none';
+        panel.style.webkitBackdropFilter = 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!isOldWebKit()) {
+        applyModernStyles();
+      } else {
+        applyFallbackStyles();
+        console.log('Running simplified version for older WebKit');
+      }
+      
+      // Fallback for very old browsers that don't support classList
+      if (!('classList' in document.documentElement)) {
+        document.querySelectorAll('[class*="collapsed"]').forEach(el => {
+          el.style.display = 'none';
+        });
+        
+        // Replace classList toggle with simple display toggle
+        window.toggleAccordion = function(button) {
+          const body = button.nextElementSibling;
+          if (body.style.display === 'none') {
+            body.style.display = 'block';
+            button.innerHTML = button.innerHTML.replace('►', '▼');
+          } else {
+            body.style.display = 'none';
+            button.innerHTML = button.innerHTML.replace('▼', '►');
+          }
+        };
+      }
     });
-
-    // Simplify cards
-    document.querySelectorAll('.card, .project-card, .accordion-item').forEach(el => {
-      el.style.background = "#fff";
-      el.style.boxShadow = "none";
-      el.style.border = "1px solid #ccc";
-    });
-
-    // Hide music player
-    const player = document.querySelector('.music-player');
-    if (player) player.style.display = "none";
-
-    // Maybe disable video prank
-    const video = document.getElementById('rickroll-video');
-    if (video) video.remove();
-  }
-
-  function detectDevice() {
-    let lowEnd = false;
-
-    // Check if device has low RAM
-    if (navigator.deviceMemory && navigator.deviceMemory <= 1.5) {
-      lowEnd = true;
-    }
-
-    // Check if backdrop-filter is supported
-    if (!CSS.supports("backdrop-filter: blur(8px)")) {
-      lowEnd = true;
-    }
-
-    // Quick performance test
-    const start = performance.now();
-    for (let i = 0; i < 1e6; i++) {} // tiny loop benchmark
-    const duration = performance.now() - start;
-    if (duration > 150) { // device too slow
-      lowEnd = true;
-    }
-
-    if (lowEnd) {
-      console.warn("Running lite version for better performance.");
-      runLiteVersion();
-    } else {
-      console.log("Running full version.");
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', detectDevice);
   </script>
 </body>
 </html>
