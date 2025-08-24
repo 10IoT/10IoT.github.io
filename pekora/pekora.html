@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pekora joiner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 60px;
+      background-color: #f4f4f4;
+    }
+    input, select {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #fallback {
+      margin-top: 30px;
+      display: none;
+    }
+    #fallback a {
+      color: #007aff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 Pekora joiner</h1>
+
+  <select id="year">
+    <option value="2017xi">Pekora 2017</option>
+    <option value="2018xi">Pekora 2018</option>
+  </select>
+
+  <br>
+
+  <input type="text" id="placeID" placeholder="Enter Place ID">
+  <br>
+  <button onclick="connectToGame()">Connect</button>
+
+  <div id="fallback">
+    <p>If the app doesn't open, you can download Pekora from this page:</p>
+    <a href="https://bablaerrr.github.io/pekora/pages/ios.html" target="_blank">Download clients</a>
+  </div>
+
+  <script>
+    function connectToGame() {
+      var placeID = document.getElementById('placeID').value.trim();
+      var year = document.getElementById('year').value;
+
+      if (placeID) {
+        var scheme = 'pekora' + year;
+        var url = scheme + '://placeID=' + placeID;
+        window.location.href = url;
+
+        setTimeout(function() {
+          document.getElementById('fallback').style.display = 'block';
+        }, 1500);
+      } else {
+        alert("Please enter a valid Place ID.");
+      }
+    }
+  </script>
+</body>
+</html>
