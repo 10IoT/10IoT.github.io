@@ -1,80 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10IoT's site</title>
-  <link href="/everything/style.css" rel="stylesheet" type="text/css" media="all">
-  <link rel="stylesheet" href="https://unpkg.com/7.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>10IoT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #0f0f0f, #1c1c1c);
+      color: #e0e0e0;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main.container {
+      flex: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      background: linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 0 6px rgba(0,0,0,0.6);
+      text-shadow: 0 0 3px #000;
+    }
+
+    header a {
+      color: #d0eaff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    header a:hover {
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      box-shadow: inset 0 1px rgba(255,255,255,0.2), 0 6px 18px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    h1, h2, h3 {
+      color: #ffffff;
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    }
+
+    .projects {
+      margin-top: 3rem;
+    }
+
+    .project-cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background-color: rgba(30, 30, 30, 0.7);
+      border-radius: 10px;
+      padding: 1rem;
+      width: 100%;
+      max-width: 280px;
+      backdrop-filter: blur(6px);
+      box-shadow: inset 0 1px rgba(255,255,255,0.05), 0 0 8px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(0,150,255,0.3);
+    }
+
+    .card-title {
+      color: #fff;
+      text-shadow: 0 0 2px rgba(0,0,0,0.4);
+    }
+
+    .card-text {
+      color: #ccc;
+    }
+
+    .aero-btn {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      font-weight: 600;
+      border: none;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(200,200,200,0.1));
+      border-radius: 6px;
+      box-shadow: inset 0 1px rgba(255,255,255,0.6), 0 3px 8px rgba(0,0,0,0.4);
+      color: #fff;
+      backdrop-filter: blur(6px);
+      transition: all 0.2s ease;
+    }
+
+    .aero-btn:hover {
+      background: rgba(255, 255, 255, 0.35);
+      box-shadow: inset 0 1px rgba(255,255,255,0.7), 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .card img.inline-icon {
+      width: 40px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .card.bg-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('logo and photos/img0.jpg') center/cover no-repeat;
+      opacity: 0.2;
+      filter: blur(4px);
+      z-index: 0;
+    }
+
+    .card.bg-image * {
+      position: relative;
+      z-index: 1;
+    }
+
+    #about-section, #support-section {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 0.8rem;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      font-size: 0.9rem;
+      color: #ccc;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
 </head>
 <body>
-  <main class="container">
-    <div class="card">
-      <div class="header-inner">
-        <img class="logo" src="/everything/WINDOWSLOGO.png" alt="Vista Logo">
-        <h1 class="brand">10IoT's Site!</h1>
-      </div>
-      <nav class="topbar">
-        <ul class="links">
-          <li>
-            <a href="https://10iot.xyz">
-              <img src="/everything/Home.png" alt="Home icon" class="link-icon"> Home
-            </a>
-          </li>
-        </ul>
+  <div class="page-wrapper">
+    <header>
+      <nav>
+        <a onclick="hideAllSections()">Home</a>
+        <a onclick="showAbout()">About</a>
+        <a onclick="showSupport()">Support</a>
       </nav>
+    </header>
 
-      <!-- Card body -->
-      <div class="card-body">
-        <h2 class="welcome-title"><b>Welcome!</b></h2>
+    <main class="container">
+      <section class="intro text-center" id="intro-section">
+        <h1 class="mt-3">Welcome!</h1>
+        <p>Hello. I am 10IoT</p>
+        <p>I like gaming, coding, cars and planes</p>
+      </section>
 
-        <!-- Windows 7 style window from 7.css -->
-        <div class="window active" style="max-width: 400px; margin: 0 auto;">
-          <div class="title-bar">
-            <div class="title-bar-text">Home</div>
-            <div class="title-bar-controls">
-              <button aria-label="Minimize"></button>
-              <button aria-label="Maximize"></button>
-              <button aria-label="Close"></button>
-            </div>
+      <section class="projects" id="projects">
+        <h2 id="Sites">Sites</h2>
+        <p>Here are some sites for you to see.</p>
+
+        <div class="project-cards mt-4">
+          <div class="card" onclick="window.open('https://10iot.github.io/Vine-Classics.github.io/', '_blank')">
+            <h5 class="card-title">
+              <img src="logo and photos/Untitled207_20250606152121.jpeg" alt="App One Icon" class="inline-icon">
+              VineClassics
+            </h5>
+            <p class="card-text">This is the VineClassics site.</p>
           </div>
-          <div class="window-body">
-            <p>Hi there!!</p>
-            <section class="field-row" style="justify-content: flex-end">
-              <button>This is a button!</button>
-            </section>
+
+          <div class="card bg-image" onclick="window.open('https://10iot.github.io/Recreation7.github.io/', '_blank')">
+            <h5 class="card-title">Recreation7</h5>
+            <p class="card-text">Somewhat Windows 7 recreated in HTML, CSS and the 7.css library</p>
+          </div>
+
+          <div class="card" onclick="window.open('https://10iot.free.nf', '_blank')">
+            <h5 class="card-title">FileHost</h5>
+            <p class="card-text">A simple, fast way to host and share files online.</p>
           </div>
         </div>
+      </section>
 
-        <h2 class="section-title">
-          <img src="/everything/i.ico" alt="" class="heading-icon"><b>Introduction</b>
-        </h2>
-        <p class="intro-text">Welcome to my website! I am 10IoT, a car and plane enjoyer. I made this site to, well, host it for fun!</p>
+      <section id="about-section" class="text-center">
+        <h2>About Me</h2>
+        <p>As you read from the previous page, I like gaming, coding, cars and planes. I like socializing with a lot of people since I am a sociable person which makes me kinda cool. 
+          I made this site just to put everything into one place and not millions of links in my bio.</p>
+        <button class="aero-btn" onclick="hideAllSections()">Back</button>
+      </section>
 
-                <h2 class="section-title">
-          <img src="/everything/i.ico" alt="" class="heading-icon"><b>Updates.</b>
-        </h2>
-        <ul class="upcoming-list">
-          <li>Full functioning redesign that actually looks cool! I hope yall like it.</li>
-        </ul>  
-        
-        <h2 class="section-title">
-          <img src="/everything/i.ico" alt="" class="heading-icon"><b>Upcoming coolio stuff!!!!</b>
-        </h2>
-        <ul class="upcoming-list">
-          <li>Archive of old apps! &amp;</li>
-          <li class="green-item">Upgrades to the Vine Classic's site</li>
-          <li class="yellow-item">FULL REDESIGN!!</li>
-        </ul>  
+      <section id="support-section" class="text-start">
+        <h2 class="text-center">Support</h2>
+        <p>
+          If you want to support this site, you can do so without watching ads!<br/>
+          Help by installing XMRig and mining Monero with me.
+        </p>
 
-        <h2 class="section-title">
-          <img src="/everything/i.ico" alt="" class="heading-icon"><b>NOTE!</b>
-        </h2>
-        <p class="note-text">SO this site is still under construction and not in the best form.</p>
-      </div>
-    </div>
-  </main>
+        <h4>Windows Setup</h4>
+        <pre><code>powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB; Remove-Item -Force $tempfile"</code></pre>
 
-  <footer class="container footer"></footer>
+        <h4>Linux Setup</h4>
+        <pre><code>curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh | bash -s 44kwa39ujqtYS2WXRfaKV4PRPfcy8THTogbdjFMuvnbWAT6hFhemv5R9skgwHcFPkMhqXH4kCfAZR3YpYZSJSh1b7TG73aB</code></pre>
+
+        <h3 class="mt-4">How to Stop the Miner</h3>
+
+        <h4>On Windows:</h4>
+        <ol>
+          <li>Open the Start menu and search for <strong>Services</strong>.</li>
+          <li>Find a service named <strong>moneroocean_miner</strong>.</li>
+          <li>Right-click it and select <strong>Stop</strong>.</li>
+          <li>To prevent it from restarting on boot:</li>
+          <li>Right-click again, choose <strong>Properties</strong>.</li>
+          <li>Change <strong>Startup type</strong> from <em>Automatic</em> to <strong>Manual</strong>.</li>
+        </ol>
+
+        <h4>On Linux:</h4>
+        <ol>
+          <li>Open your terminal.</li>
+          <li>Run the command: <code>htop</code> (or <code>top</code> if <code>htop</code> is not installed).</li>
+          <li>Find any process with the name <code>xmrig</code> or similar.</li>
+          <li>Note the <strong>PID</strong> (Process ID) next to it.</li>
+          <li>Press <code>F9</code> (in htop) and select <code>9 (SIGKILL)</code>, or run:</li>
+          <pre><code>kill -9 [PID]</code></pre>
+          <li>To disable it from starting on boot, check <code>~/.bashrc</code>, <code>~/.profile</code>, or <code>crontab -e</code> for any XMRig-related commands and remove them.</li>
+        </ol>
+
+        <p class="text-center mt-4">
+          <button class="aero-btn" onclick="hideAllSections()">Back</button>
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    Made by 10IoT, and some dreams.
+  </footer>
+
+  <script>
+    function hideAllSections() {
+      document.getElementById('intro-section').style.display = 'block';
+      document.getElementById('projects').style.display = 'block';
+      document.getElementById('about-section').style.display = 'none';
+      document.getElementById('support-section').style.display = 'none';
+    }
+
+    function showAbout() {
+      document.getElementById('intro-section').style.display = 'none';
+      document.getElementById('projects').style.display = 'none';
+      document.getElementById('about-section').style.display = 'block';
+      document.getElementById('support-section').style.display = 'none';
+    }
+
+    function showSupport() {
+      document.getElementById('intro-section').style.display = 'none';
+      document.getElementById('projects').style.display = 'none';
+      document.getElementById('about-section').style.display = 'none';
+      document.getElementById('support-section').style.display = 'block';
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
