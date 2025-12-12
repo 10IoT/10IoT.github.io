@@ -5,12 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>10IoT</title>
 
-<!-- This is the font I use my guy -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --page-w:1000px;
+    --page-w:970px;
     --blue:#6aa3d6;
     --muted:#e7e7e7;
     --panel:#efefef;
@@ -18,99 +17,108 @@
     --accent:#f2c94c;
   }
 
-  html,body{height:100%;margin:0;font-family:Inter, Arial, Helvetica, sans-serif;background:#fff;}
-
-  .site-wrap { width:100%; display:flex; justify-content:center; padding:18px 0; background:#ffffff; }
-
-  #page {
-    width:var(--page-w);
-    background:linear-gradient(#f7f7f7,#eaeaea);
-    border:2px solid #9b9b9b;
-    box-sizing:border-box;
-    box-shadow:0 1px 0 rgba(0,0,0,0.6);
+  html,body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#c5d7ea;
   }
 
-  #topbar {
+  .site-wrap{ display:flex; justify-content:center; padding:15px 0; }
+
+  #page{
+    width:var(--page-w);
+    background:#fff;
+    border:2px solid #7fa3c7;
+    box-shadow:0 0 6px rgba(0,0,0,0.35);
+  }
+
+  /* TOPBAR */
+  #topbar{
+    background:#294e80;
+    padding:8px 12px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    padding:8px 12px;
-    background:linear-gradient(#cfe7fa,#b4d4f2);
-    border-bottom:3px solid #2b5f8f;
+    color:white;
   }
-  #logo { display:flex; align-items:center; gap:12px; }
-  #logo img { height:56px; display:block; }
-  #top-cta { margin-left:auto; }
-  .btn-signup {
-    background: linear-gradient(#ffd24d,#f6c43a);
-    border:2px solid #d29b00;
-    padding:10px 16px;
-    color:#000;
+  #logo div{
+    font-size:22px;
     font-weight:700;
-    text-decoration:none;
-    border-radius:6px;
-    box-shadow:0 1px 0 rgba(0,0,0,0.3);
+    color:white;
   }
 
-  nav {
-    background:#5f95c6;
-    color:#fff;
-    padding:8px 12px;
-    font-weight:600;
+  /* NAVBAR (Classic Roblox style) */
+  nav{
+    background:#3c6ea5;
+    padding:8px;
     display:flex;
     gap:14px;
-    align-items:center;
+    border-bottom:3px solid #1f3c5c;
   }
-  nav a { color:#fff; text-decoration:none; font-size:14px; }
-  nav .sep { color:rgba(255,255,255,0.6); margin:0 6px; }
+  nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+  }
+  nav a:hover{
+    text-decoration:underline;
+  }
 
-  .body-inner {
+  /* Layout */
+  .body-inner{
     display:flex;
-    padding:14px;
-    gap:18px;
+    gap:14px;
+    padding:12px;
   }
 
-  .left-col { width:180px; box-sizing:border-box; }
-  .login-panel {
-    background:var(--panel);
-    border:1px dashed var(--border);
+  .left-col{
+    width:170px;
+  }
+
+  /* Login Panel (Classic style) */
+  .login-panel{
+    background:#f2f2f2;
+    border:1px solid #b9b9b9;
     padding:10px;
     font-size:13px;
   }
-  .login-panel h5{margin:0 0 10px 0;font-size:14px;color:#333}
-  .login-panel label{display:block;margin:6px 0 3px;color:#333}
-  .login-panel input{width:100%;padding:6px;border:1px solid #cfcfcf}
-  .login-panel .login-btn{display:block;margin-top:8px;padding:6px 10px;background:#ddd;border:1px solid #bbb;text-align:center;text-decoration:none;color:#333;border-radius:4px}
 
-  .center-col { flex:1; background:transparent; padding:4px 8px; box-sizing:border-box; }
-  .center-panel {
-    background:linear-gradient(#f3f3f3,#e8e8e8);
-    border:1px solid #bbb;
-    padding:14px;
-    min-height:420px;
+  /* CENTER CONTENT */
+  .center-col{
+    flex:1;
   }
-  .center-panel h2 { margin:0; font-family:'Freckle Face',Arial; font-size:32px; color:#222; }
-  .center-panel h3 { margin:6px 0 12px 0;color:#333;font-weight:700 }
-  #things { display:flex; flex-direction:column; gap:12px; margin-top:6px; }
-  .thing { display:flex; gap:12px; align-items:flex-start; }
-  .thing .icon {
-    width:56px;height:56px;border:1px solid #bbb;background:#dbeefc;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1f4e76;border-radius:6px;
+  .center-panel{
+    background:#f8f8f8;
+    border:1px solid #b9b9b9;
+    padding:12px;
+    min-height:380px;
   }
-  .thing h4 { margin:0 0 4px 0; font-size:16px; color:#222; }
-  .thing p { margin:0;color:#666; font-size:13px; }
+  .center-panel h2{
+    font-size:28px;
+    margin:0 0 5px 0;
+  }
+  .thing{
+    margin-top:10px;
+    padding:8px;
+    background:white;
+    border:1px solid #ccc;
+  }
+  .thing h4{
+    margin:0 0 4px 0;
+  }
+  .thing p{
+    margin:0;
+    font-size:13px;
+  }
 
-  .coppa {
-    display:inline-block;margin-top:14px;border:1px solid #bbb;padding:8px;background:white;width:130px;text-align:center;
+  /* RIGHT COLUMN */
+  .right-col{
+    width:330px;
   }
-
-  .right-col { width:380px; box-sizing:border-box; }
-  .video-wrap {
+  .video-wrap{
     background:#000;
-    height:320px;
+    height:250px;
     border:1px solid #333;
-    display:flex;
-    align-items:center;
-    justify-content:center;
   }
   .video-wrap img{
     width:100%;
@@ -118,104 +126,111 @@
     object-fit:cover;
   }
 
-  .install-row {
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-top:10px;
-  }
-  .compat-note { font-size:12px;color:#666;text-align:center; }
-  .download-btn {
-    margin-left:auto;
-    display:inline-block;
-    background:linear-gradient(#ffd24d,#f1c232);
-    border:3px solid #b68508;
-    padding:10px 16px;
-    font-weight:800;
-    border-radius:6px;
-    text-decoration:none;
-    color:#333;
-    box-shadow:0 2px 0 rgba(0,0,0,0.25);
-    font-size:18px;
-  }
-
-  .cool-places {
-    margin:12px;
+  .cool-places{
+    padding:10px;
+    background:#f2f2f2;
     border-top:1px solid #999;
-    padding:10px 12px;
-    display:flex;
-    align-items:center;
-    gap:12px;
   }
-  .cool-title { width:200px; background:#efefef;border:1px solid #bbb;padding:12px; text-align:left;box-sizing:border-box; }
-  .thumbs { display:flex; gap:10px; padding-left:10px; flex:1; }
-  .thumbs img { width:120px; height:70px; object-fit:cover; border:1px solid #bbb; }
 
-  footer {
-    padding:12px;
-    font-size:12px;
+  footer{
+    background:#e6e6e6;
+    padding:10px;
     text-align:center;
-    color:#333;
     border-top:1px solid #999;
-    background:linear-gradient(#f3f3f3,#eaeaea);
+    font-size:12px;
   }
 
-  @media (max-width:1024px){ :root{ --page-w:920px; } .right-col{ width:320px; } }
-  @media (max-width:820px){ #page{ width:100%; margin:0; } .body-inner{ flex-direction:column; padding:10px; } .left-col, .right-col { width:100%;} .thumbs img{ width:90px; height:60px; } }
+  /* SUPPORT PANEL */
+  #support-panel{
+    display:none;
+    padding:14px;
+    background:#f8f8f8;
+    border:1px solid #999;
+    margin:12px;
+  }
+  #support-panel h2{
+    margin-top:0;
+  }
 </style>
+
+<script>
+function openSupport(){
+  document.getElementById("support-panel").style.display = "block";
+  window.scrollTo(0,0);
+}
+</script>
+
 </head>
 <body>
-  <div class="site-wrap">
-    <div id="page">
 
-      <div id="topbar">
-        <div id="logo">
-          <img src="\everything\WINDOWSLOGO.png" alt="logo" onerror="this.style.display='none'"/>
-          <div style="font-size:16px;font-weight:700;color:#15324b">10IoT</div>
+<div class="site-wrap">
+  <div id="page">
+
+    <div id="topbar">
+      <div id="logo">
+        <div>10IoT</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="javascript:void(0)" onclick="openSupport()">Support</a>
+      <a href="#">Nothing</a>
+    </nav>
+
+    <div id="support-panel">
+      <h2>Support</h2>
+      <p>If you need help or want to report a bug, email: <b>Hello@10iot.xyz</b></p>
+      <p>You can also contact me on Discord: <b>vineclassics</b></p>
+    </div>
+
+    <div class="body-inner">
+
+      <aside class="left-col">
+        <div class="login-panel">
+
         </div>
-        <div id="top-cta"></div>
-      </div>
+      </aside>
 
-      <nav>
-        <a href="#">Home</a><span class="sep">|</span>
-        <a href="#">Support</a><span class="sep">|</span>
-        <a href="#">Nothing</a><span class="sep">|</span>
-      </nav>
+      <main class="center-col">
+        <div class="center-panel">
+          <h2>10IoT</h2>
+          <h3>Welcome!</h3>
 
-      <div class="body-inner">
-
-        <aside class="left-col">
-          <div class="login-panel"></div>
-          <div class="figure"><img alt="figure" onerror=""/></div>
-        </aside>
-
-        <main class="center-col">
-          <div class="center-panel">
-            <h2>10IoT</h2>
-            <h3>Welcome!</h3>
-            <div id="things">
-              <div class="thing"><div class="icon">1</div><div><h4>About Me:</h4><p>Hi, I am 10IoT. I am car and plane enthusiast, this is my corner of the internet!</p></div></div>
-              <div class="thing"><div class="icon">2</div><div><h4>Why this?</h4><p>Well, I have multiple sites including the VineClassics site, the Recreation7 (discontinued) site, and a new EgyptHost Site! So this is the root domain of all of these.</p></div></div>
-              <div class="thing"><div class="icon">3</div><div><h4>Contact</h4><p>Any bugs with this site? No problem, you can email me at Hello@10iot.xyz or message me on Discord vineclassics</p></div></div>
-            </div>
+          <div class="thing">
+            <h4>About Me:</h4>
+            <p>I am 10IoT, a car and plane enthusiast. This is my corner of the internet!</p>
           </div>
-        </main>
 
-        <aside class="right-col">
-          <div class="video-wrap">
-            <img src="\everything\plen.png" alt="preview" />
+          <div class="thing">
+            <h4>Why this?</h4>
+            <p>This is the root domain for all of my sites: VineClassics, Recreation7 (discontinued), EgyptHost, etc.</p>
           </div>
-          <div class="install-row"><div class="compat-note">Hi, I exist</div></div>
-        </aside>
-      </div>
 
-      <div class="cool-places">
-        <div class="cool-title"><strong>Information: No New Info.</strong></div>
-      </div>
+          <div class="thing">
+            <h4>Contact</h4>
+            <p>Email bugs to Hello@10iot.xyz or Discord: vineclassics</p>
+          </div>
+        </div>
+      </main>
 
-      <footer>This site was made by some hope in mind, expect bugs.</footer>
+      <aside class="right-col">
+        <div class="video-wrap">
+          <img src="plen.png" alt="preview">
+        </div>
+      </aside>
 
     </div>
+
+    <!-- INFO BAR -->
+    <div class="cool-places">
+      <strong>Information: No New Info.</strong>
+    </div>
+
+    <footer>This site was made with some hope in mind. Expect bugs.</footer>
+
   </div>
+</div>
+
 </body>
 </html>
