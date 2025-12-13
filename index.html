@@ -5,152 +5,209 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>10IoT</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
-  :root{
-    --page-w:970px;
-    --blue:#6aa3d6;
-    --muted:#e7e7e7;
-    --panel:#efefef;
-    --border:#bdbdbd;
-    --accent:#f2c94c;
-  }
+:root{
+  --page-w:970px;
 
-  html,body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#c5d7ea;
-  }
+  --aero-light:#dbeaf8;
+  --aero-mid:#9fc3e6;
+  --aero-dark:#3a6ea5;
+  --aero-darker:#254b73;
 
-  .site-wrap{ display:flex; justify-content:center; padding:15px 0; }
+  --panel:#f4f7fb;
+  --border:#8aa6c1;
+}
 
-  #page{
-    width:var(--page-w);
-    background:#fff;
-    border:2px solid #7fa3c7;
-    box-shadow:0 0 6px rgba(0,0,0,0.35);
-  }
+html,body{
+  margin:0;
+  font-family:Tahoma, Arial, sans-serif;
+  background:
+    linear-gradient(#cfe2f3,#9bbce0);
+}
 
-  /* TOPBAR */
-  #topbar{
-    background:#294e80;
-    padding:8px 12px;
-    display:flex;
-    align-items:center;
-    color:white;
-  }
-  #logo div{
-    font-size:22px;
-    font-weight:700;
-    color:white;
-  }
+.site-wrap{
+  display:flex;
+  justify-content:center;
+  padding:18px 0;
+}
 
-  /* NAVBAR (Classic Roblox style) */
-  nav{
-    background:#3c6ea5;
-    padding:8px;
-    display:flex;
-    gap:14px;
-    border-bottom:3px solid #1f3c5c;
-  }
-  nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:700;
-    font-size:14px;
-  }
-  nav a:hover{
-    text-decoration:underline;
-  }
+#page{
+  width:var(--page-w);
+  background:linear-gradient(#ffffff,#eef3f8);
+  border:2px solid #6f96bf;
+  border-radius:10px;
+  box-shadow:
+    0 0 0 1px #ffffff inset,
+    0 6px 16px rgba(0,0,0,.45);
+  overflow:hidden;
+}
 
-  /* Layout */
-  .body-inner{
-    display:flex;
-    gap:14px;
-    padding:12px;
-  }
+#topbar{
+  background:
+    linear-gradient(to bottom,
+      #7fb3e6,
+      #3c6ea5 55%,
+      #2b4f78);
+  padding:10px 14px;
+  color:white;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6);
+}
 
-  .left-col{
-    width:170px;
-  }
+#logo div{
+  font-size:24px;
+  font-weight:bold;
+  text-shadow:
+    0 1px 0 #000,
+    0 0 6px rgba(255,255,255,.4);
+}
 
-  /* Login Panel (Classic style) */
-  .login-panel{
-    background:#f2f2f2;
-    border:1px solid #b9b9b9;
-    padding:10px;
-    font-size:13px;
-  }
+nav{
+  background:
+    linear-gradient(to bottom,
+      #5f9ad6,
+      #2f5f92);
+  padding:7px 10px;
+  display:flex;
+  gap:16px;
+  border-bottom:2px solid #1f3c5c;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
+}
 
-  /* CENTER CONTENT */
-  .center-col{
-    flex:1;
-  }
-  .center-panel{
-    background:#f8f8f8;
-    border:1px solid #b9b9b9;
-    padding:12px;
-    min-height:380px;
-  }
-  .center-panel h2{
-    font-size:28px;
-    margin:0 0 5px 0;
-  }
-  .thing{
-    margin-top:10px;
-    padding:8px;
-    background:white;
-    border:1px solid #ccc;
-  }
-  .thing h4{
-    margin:0 0 4px 0;
-  }
-  .thing p{
-    margin:0;
-    font-size:13px;
-  }
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+  padding:4px 10px;
+  border-radius:6px;
+}
 
-  /* RIGHT COLUMN */
-  .right-col{
-    width:330px;
-  }
-  .video-wrap{
-    background:#000;
-    height:250px;
-    border:1px solid #333;
-  }
-  .video-wrap img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
+nav a:hover{
+  background:rgba(255,255,255,.25);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6);
+}
 
-  .cool-places{
-    padding:10px;
-    background:#f2f2f2;
-    border-top:1px solid #999;
-  }
+#support-panel{
+  display:none;
+  margin:12px;
+  padding:14px;
+  background:
+    linear-gradient(#ffffff,#e8f0f8);
+  border:1px solid var(--border);
+  border-radius:8px;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 3px 6px rgba(0,0,0,.25);
+}
 
-  footer{
-    background:#e6e6e6;
-    padding:10px;
-    text-align:center;
-    border-top:1px solid #999;
-    font-size:12px;
-  }
+#support-panel h2{
+  margin-top:0;
+}
 
-  /* SUPPORT PANEL */
-  #support-panel{
-    display:none;
-    padding:14px;
-    background:#f8f8f8;
-    border:1px solid #999;
-    margin:12px;
-  }
-  #support-panel h2{
-    margin-top:0;
-  }
+.body-inner{
+  display:flex;
+  gap:14px;
+  padding:14px;
+}
+
+.left-col{
+  width:170px;
+}
+
+.login-panel{
+  background:
+    linear-gradient(#ffffff,#e6edf6);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:10px;
+  font-size:13px;
+  box-shadow:inset 0 1px 0 #fff;
+}
+
+.center-col{
+  flex:1;
+}
+
+.center-panel{
+  background:
+    linear-gradient(#ffffff,#eef3f8);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px;
+  min-height:380px;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 4px 8px rgba(0,0,0,.25);
+}
+
+.center-panel h2{
+  margin:0;
+  font-size:30px;
+  text-shadow:0 1px 0 #fff;
+}
+
+.center-panel h3{
+  margin-top:4px;
+  font-weight:normal;
+  color:#444;
+}
+
+.thing{
+  margin-top:12px;
+  padding:10px;
+  background:
+    linear-gradient(#ffffff,#f1f1f1);
+  border:1px solid #bcbcbc;
+  border-radius:8px;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 2px 4px rgba(0,0,0,.2);
+}
+
+.thing h4{
+  margin:0 0 4px 0;
+}
+
+.thing p{
+  margin:0;
+  font-size:13px;
+}
+
+.right-col{
+  width:330px;
+}
+
+.video-wrap{
+  height:250px;
+  background:black;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid #333;
+  box-shadow:0 4px 10px rgba(0,0,0,.5);
+}
+
+.video-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.cool-places{
+  padding:10px;
+  background:
+    linear-gradient(#f1f6fb,#dbe6f3);
+  border-top:1px solid #9cb3cc;
+  font-size:13px;
+}
+
+footer{
+  background:
+    linear-gradient(#ededed,#d6d6d6);
+  padding:10px;
+  text-align:center;
+  border-top:1px solid #aaa;
+  font-size:12px;
+}
 </style>
 
 <script>
@@ -159,77 +216,76 @@ function openSupport(){
   window.scrollTo(0,0);
 }
 </script>
-
 </head>
+
 <body>
 
 <div class="site-wrap">
-  <div id="page">
+<div id="page">
 
-    <div id="topbar">
-      <div id="logo">
-        <div>10IoT</div>
+  <div id="topbar">
+    <div id="logo"><div>10IoT</div></div>
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="javascript:void(0)" onclick="openSupport()">Support</a>
+    <a href="#">Nothing</a>
+  </nav>
+
+  <div id="support-panel">
+    <h2>Support</h2>
+    <p>Email: <b>Hello@10iot.xyz</b></p>
+    <p>Discord: <b>vineclassics</b></p>
+  </div>
+
+  <div class="body-inner">
+
+    <aside class="left-col">
+      <div class="login-panel">
+        I know this site is bad
       </div>
-    </div>
+    </aside>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="javascript:void(0)" onclick="openSupport()">Support</a>
-      <a href="#">Nothing</a>
-    </nav>
+    <main class="center-col">
+      <div class="center-panel">
+        <h2>10IoT</h2>
+        <h3>Welcome!</h3>
 
-    <div id="support-panel">
-      <h2>Support</h2>
-      <p>If you need help or want to report a bug, email: <b>Hello@10iot.xyz</b></p>
-      <p>You can also contact me on Discord: <b>vineclassics</b></p>
-    </div>
-
-    <div class="body-inner">
-
-      <aside class="left-col">
-        <div class="login-panel">
-
+        <div class="thing">
+          <h4>About Me</h4>
+          <p>I am 10IoT, a car and plane enthusiast. This is my corner of the internet.</p>
         </div>
-      </aside>
 
-      <main class="center-col">
-        <div class="center-panel">
-          <h2>10IoT</h2>
-          <h3>Welcome!</h3>
-
-          <div class="thing">
-            <h4>About Me:</h4>
-            <p>I am 10IoT, a car and plane enthusiast. This is my corner of the internet!</p>
-          </div>
-
-          <div class="thing">
-            <h4>Why this?</h4>
-            <p>This is the root domain for all of my sites: VineClassics, Recreation7 (discontinued), EgyptHost, etc.</p>
-          </div>
-
-          <div class="thing">
-            <h4>Contact</h4>
-            <p>Email bugs to Hello@10iot.xyz or Discord: vineclassics</p>
-          </div>
+        <div class="thing">
+          <h4>Why this?</h4>
+          <p>This is the root domain for all of my sites: VineClassics, EgyptHost, etc.</p>
         </div>
-      </main>
 
-      <aside class="right-col">
-        <div class="video-wrap">
-          <img src="\everything\plen.png" alt="preview">
+        <div class="thing">
+          <h4>Contact</h4>
+          <p>Email: Hello@10iot.xyz<br>Discord: vineclassics</p>
         </div>
-      </aside>
+      </div>
+    </main>
 
-    </div>
-
-    <!-- INFO BAR -->
-    <div class="cool-places">
-      <strong>Information: No New Info.</strong>
-    </div>
-
-    <footer>This site was made with some hope in mind. Expect bugs.</footer>
+    <aside class="right-col">
+      <div class="video-wrap">
+        <img src="plen.png" alt="preview">
+      </div>
+    </aside>
 
   </div>
+
+  <div class="cool-places">
+    <strong>Information:</strong> Upgraded design
+  </div>
+
+  <footer>
+    This site was made with some hope in mind. Expect bugs.
+  </footer>
+
+</div>
 </div>
 
 </body>
