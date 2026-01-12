@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offsaler</title>
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0f172a;
+      --primary: #1e40af;
+      --accent: #3b82f6;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --border: #1e293b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Inter, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 80px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 2.8rem;
+      font-weight: 600;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 720px;
+      margin-inline: auto;
+    }
+
+    main {
+      max-width: 1400px;
+      margin: -64px auto 96px;
+      padding: 0 32px;
+    }
+
+    .shop {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 36px;
+    }
+
+    .item {
+      background: linear-gradient(180deg, #0b1220, #020617);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 35px 80px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item img {
+      width: 100%;
+      height: 170px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #020617, #1e293b);
+      border: 1px solid var(--border);
+    }
+
+    .item h3 {
+      margin: 0 0 6px;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .item p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .price {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 22px;
+      color: #bfdbfe;
+    }
+
+    .controls label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .controls input {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #020617;
+      color: var(--text);
+    }
+
+    .controls button {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(180deg, var(--primary), #1e3a8a);
+      border: none;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 32px;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Offsaler</h1>
+  <p>The only site to trust</p>
+</header>
+
+<main>
+  <div class="shop">
+
+    <!-- 15 Enterprise Items -->
+    <script>
+      const products = [
+  ["2006 ROBLOX ACCOUNT", "Quoted on request", "images/2006.png"],
+  ["2007 ROBLOX ACCOUNT", "Quoted on request", "images/2007.png"],
+  ["2008 ROBLOX ACCOUNT", "Quoted on request", "images/2008.jpg"],
+  ["2009 ROBLOX ACCOUNT", "Quoted on request", "images/2009.png"],
+  ["2010 ROBLOX ACCOUNT", "Quoted on request", "images/2010.png"],
+  ["3L ROBLOX ACCOUNT", "Quoted on request", "images/3l.png"],
+  ["3C ROBLOX ACCOUNT", "Quoted on request", "images/3c.png"],
+  ["4L ROBLOX ACCOUNT", "Quoted on request", "images/4l.png"],
+  ["4C ROBLOX ACCOUNT", "Quoted on request", "images/4c.png"],
+  ["ROBLOX ACCOUNT WITH 99K ROBUX", "Quoted on request", "images/99k.png"],
+  ["ROBLOX ACCOUNT WITH 2M ROBUX", "Quoted on request", "images/2m.png"],
+];
+
+      document.write(products.map((p, i) => `
+        <div class="item">
+          <img src="${p[2]}" alt="${p[0]}" />
+          <h3>${p[0]}</h3>
+          <p></p>
+          <div class="price">${p[1]}</div>
+          <div class="controls">
+            <label>Quantity</label>
+            <input type="number" min="1" value="1" id="qty-${i}" />
+            <button onclick="buy('${p[0]}', document.getElementById('qty-${i}').value)">Submit Order Request</button>
+          </div>
+        </div>`).join(''));
+    </script>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 Offsaler
+</footer>
+
+<script>
+  const shopEmail = "abd@10iot.xyz"; // CHANGE THIS
+
+  function buy(itemName, quantity) {
+    const subject = `Offsaler Request — ${itemName}`;
+    const body = `Dear Offsaler,%0D%0A%0D%0AProduct: ${itemName}%0D%0ARequested Quantity: ${quantity}%0D%0A%0D%0APlease confirm availability.%0D%0A%0D%0ASincerely,`;
+
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${shopEmail}&su=${encodeURIComponent(subject)}&body=${body}`;
+    window.open(gmailLink, '_blank');
+  }
+</script>
+
+</body>
+</html>
